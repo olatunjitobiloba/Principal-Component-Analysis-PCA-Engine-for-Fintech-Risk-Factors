@@ -14,7 +14,9 @@ def test_components_shape():
     pca = PCAEngine(n_components=3)
     pca.fit_transform(X)
 
-    assert pca.components.shape == (n_cols, 3)
+    components = pca.components
+    assert components is not None
+    assert components.shape == (n_cols, 3)
 
 
 def test_scores_shape():
