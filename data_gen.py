@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn.preprocessing import StandardScaler
 
 
 def generate_financial_data(num_samples=1000, num_features=50):
@@ -8,8 +9,8 @@ def generate_financial_data(num_samples=1000, num_features=50):
     cov_matrix = np.random.rand(num_features, num_features)
     cov_matrix = np.dot(cov_matrix, cov_matrix.T)  # Make it symmetric
     data = np.random.multivariate_normal(mean, cov_matrix, size=num_samples)
-    data = data - np.mean(data, axis=0)
-    data = data / np.std(data, axis=0)
+    scaler = StandardScaler()
+    data = scaler.fit_transform(data)
     return data
 
 if __name__ == "__main__":
