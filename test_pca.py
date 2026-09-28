@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 
 from pca import PCAEngine
 
@@ -42,3 +43,22 @@ def test_any_number_of_components():
         scores = pca.fit_transform(X)
 
         assert scores.shape == (n_rows, k)
+
+
+def test_pca_orthogonality():
+    pca = PCAEngine(n_components=n_cols)
+    pca.fit_transform(X)
+    components = pca.components
+    assert components is not None
+    pc1 = components[:, 0]
+    pc2 = components[:, 1]
+    assert abs(np.dot(pc1, pc2)) < 1e-7
+
+
+def test_pca_normalized():
+    pca = PCAEngine(n_components=n_cols)
+    pca.fit_transform(X)
+    components = pca.components
+    assert components is not None
+    pc1 = components[:, 0]
+    assert np.linalg.norm(pc1) == pytest.approx(1.0, abs=1e-6)
