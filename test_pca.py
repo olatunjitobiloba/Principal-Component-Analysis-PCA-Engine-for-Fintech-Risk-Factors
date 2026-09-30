@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from pca import PCAEngine
+from pca_engine import PCAEngine
 
 n_rows = 200
 n_cols = 10

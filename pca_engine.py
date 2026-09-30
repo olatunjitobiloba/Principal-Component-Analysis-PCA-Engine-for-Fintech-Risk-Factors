@@ -23,6 +23,13 @@ class PCAEngine:
 
         self.explained_variance = eigenvalues[indices]
 
+        return self.explained_variance
+
+    def fit_transform(self, X):
+        self.fit(X)
+
+        return self.transform(X)
+
     def transform(self, X):
         X_centered = X - self.mean
 
