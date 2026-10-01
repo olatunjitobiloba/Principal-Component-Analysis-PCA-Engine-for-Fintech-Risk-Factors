@@ -64,6 +64,7 @@ error = pca.reconstruction_error(data)   # MSE, 0.0 when using all components
 | File | Role |
 |---|---|
 | `pca_engine.py` | `PCAEngine`: mean centering, covariance, `np.linalg.eigh`, projection, reconstruction |
+| `pca.py` | compatibility shim re-exporting `PCAEngine`, so `from pca import PCAEngine` also works |
 | `data_gen.py` | synthetic correlated data, and `load_data()` for the dashboard |
 | `visualization.py` | matplotlib charts for explained variance ratio and its cumulative form |
 | `dashboard.py` | Streamlit UI wiring the pieces together |

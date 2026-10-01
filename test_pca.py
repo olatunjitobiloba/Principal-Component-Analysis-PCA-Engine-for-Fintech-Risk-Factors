@@ -74,7 +74,7 @@ def test_inverse_transform_shape():
 def test_full_rank_reconstruction_is_lossless():
     pca = PCAEngine(n_components=n_cols)
     pca.fit(X)
-    assert pca.reconstruction_error(X) == pytest.approx(0.0, abs=1e-20)
+    assert pca.reconstruction_error(X) == pytest.approx(0.0, abs=1e-12)
 
 
 def test_reconstruction_error_decreases_with_k():

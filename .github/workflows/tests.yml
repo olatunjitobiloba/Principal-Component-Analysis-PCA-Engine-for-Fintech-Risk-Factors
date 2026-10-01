@@ -26,3 +26,8 @@ jobs:
 
       - name: Run tests
         run: python -m pytest test_pca.py -v
+
+      - name: Lint
+        run: |
+          pip install ruff
+          ruff check .

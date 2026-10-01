@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY pca_engine.py data_gen.py visualization.py dashboard.py ./
+COPY pca.py pca_engine.py data_gen.py visualization.py dashboard.py ./
 
 EXPOSE 8501
 
